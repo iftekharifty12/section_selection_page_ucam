@@ -1,0 +1,226 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f0f2f5;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Student Information Section */
+.student-info h2, .courses-taken h2 {
+    background-color: #FF8C00;
+    color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.student-info .info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.info p {
+    margin: 10px 0;
+    flex: 1 1 45%;
+    font-size: 16px;
+}
+
+p span {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Course Taken Section */
+.course {
+    border: 2px solid #FF8C00;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.course:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.course-header {
+    background-color: #F4F4F4;
+    padding: 20px;
+    cursor: pointer;
+    display: flex; /* Go back to row layout */
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.course-header h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    color: #333;
+}
+
+.course-header .selected-section-info {
+    font-size: 14px;
+    color: #666;
+    margin-left: 10px;
+    font-style: italic;
+}
+.course-header .toggle {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.course-header .toggle.rotated {
+    transform: rotate(180deg);
+}
+
+.course-header .selected-details {
+    font-size: 14px;
+    color: #666;
+    font-style: normal;
+    margin-left: 20px;
+}
+
+.course-body {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+
+.course-body table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.course-body th, .course-body td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
+}
+
+.select-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px; /* Adjusted padding */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.select-btn:hover {
+    background-color: #218838;
+}
+
+/* Styling for selected section info in the course header */
+.selected-section-info {
+    font-size: 14px;
+    color: #666;
+    margin-left: 10px;
+    font-style: italic;
+}
+/* Styles for conflict button (Red) */
+.select-btn.conflicted,
+.select-btn.remove {
+    background-color: #dc3545; /* Red color for conflict or when section is selected */
+    cursor: not-allowed; /* Change cursor for conflicted state */
+}
+
+.select-btn.remove {
+    cursor: pointer; /* Allow clicking for removal */
+}
+
+
+.course-header.active {
+    background-color: #d9d9d9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Hide the table header on mobile */
+    thead {
+        display: none;
+    }
+
+    /* Block layout for table rows */
+    .course-body tr {
+        display: block;
+        background-color: #fafafa;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        position: relative; /* For absolute positioning of the button */
+        padding-bottom: 70px; /* Create space for the button at the bottom */
+    }
+
+    .course-body td {
+        display: block;
+        padding: 5px 0;
+        font-size: 16px;
+    }
+
+    /* Position the button at the bottom of the row */
+    .select-column {
+        position: absolute;
+        bottom: 10px; /* Position the button 10px from the bottom */
+        left: 10px; /* Align it to the left */
+        right: 10px; /* Align it to the right */
+        text-align: center; /* Center the button */
+    }
+
+    .select-btn {
+        width: 100%; /* Make the button full width */
+        padding: 10px; /* Add padding for better touch interaction */
+        font-size: 14px;
+        box-sizing: border-box; /* Ensure padding is included in width */
+    }
+
+    /* Section, Time, Date displayed in one row */
+    .course-body td[data-label="Sec"],
+    .course-body td[data-label="Time"],
+    .course-body td[data-label="Date"] {
+        display: inline-block;
+        font-size: 16px;
+        margin-right: 10px; /* Space between items */
+        font-weight: bold;
+    }
+
+    /* Seats (Capacity/Occupied) and Room displayed in one row */
+    .course-body td[data-label="Remaining"],
+    .course-body td[data-label="Room"] {
+        display: inline-block;
+        margin-right: 10px; /* Space between items */
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    /* Faculty name italic */
+    .course-body td[data-label="Faculty"] {
+        font-style: italic;
+    }
+
+    /* Extra margin at the bottom of each row to make space for the button */
+    .course-body tr {
+        padding-bottom: 60px; /* Make enough space for the button */
+    }
+}
+

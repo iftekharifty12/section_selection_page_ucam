@@ -1,0 +1,247 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f0f2f5;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Student Information Section */
+.student-info h2, .courses-taken h2 {
+    background-color: #FF8C00;
+    color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.student-info .info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.info p {
+    margin: 10px 0;
+    flex: 1 1 45%;
+    font-size: 16px;
+}
+
+p span {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Course Taken Section */
+.course {
+    border: 2px solid #FF8C00;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.course:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.course-header {
+    background-color: #F4F4F4;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.course-body table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.course-body th, .course-body td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
+}
+
+.select-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.select-btn:hover {
+    background-color: #218838;
+}
+
+/* Styling for selected section info in the course header */
+.selected-section-info {
+    font-size: 14px;
+    color: #666;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.course-header.active {
+    background-color: #d9d9d9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Hide the table header on mobile */
+    thead {
+        display: none;
+    }
+    .course-body td {
+        display: block; /* Keep blocks for mobile */
+        padding: 5px 0; /* Reduced padding for mobile */
+        font-size: 16px;
+    }
+
+    .select-btn {
+        width: 100%;
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    /* Hide conflict column on mobile */
+    .course-body td[data-label="Conflict"],
+    .course-body th:nth-child(7) {
+        display: none; /* Hide the conflict column */
+    }
+
+    /* Block layout for table rows */
+    .course-body table {
+        width: 100%;
+    }
+
+    .course-body tr {
+        display: block;
+        background-color: #fafafa;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .course-body td {
+        display: block;
+        padding: 5px 0; /* Reduced padding for mobile */
+        font-size: 16px;
+    }
+
+    /* Section, Time, Date displayed in one row */
+    .course-body td[data-label="Sec"],
+    .course-body td[data-label="Time"],
+    .course-body td[data-label="Date"] {
+        display: inline-block;
+        font-size: 16px;
+        margin-right: 10px; /* Space between items */
+        font-weight: bold;
+    }
+
+    /* Seats (Capacity/Occupied) and Room displayed in one row */
+    .course-body td[data-label="Remaining"],
+    .course-body td[data-label="Room"] {
+        display: inline-block;
+        margin-right: 10px; /* Space between items */
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    /* Faculty name italic */
+    .course-body td[data-label="Faculty"] {
+        font-style: italic;
+    }
+
+    /* Add labels for Capacity and Remaining for clarity */
+    .course-body td[data-label="Sec"]::before {
+        content: 'Sec: ';
+    }
+
+    .course-body td[data-label="Remaining"]::before {
+        content: 'Remaining: ';
+    }
+
+    .course-body td[data-label="Room"]::before {
+        content: 'Room: ';
+    }
+
+    /* Select button responsive */
+    .select-btn {
+        width: 100%;
+        padding: 6px;
+        font-size: 14px;
+    }
+}
+
+/* Styles for web view */
+@media (min-width: 769px) {
+    .course-body tr {
+        display: flex; /* Use flexbox for web view */
+        justify-content: space-between; /* Space between elements */
+        align-items: center; /* Center vertically */
+    }
+
+    /* Position select button on the left */
+    .course-body td:nth-child(8) {
+        order: -1; /* Moves the select button to the left */
+        margin-right: 15px; /* Space after the button */
+    }
+}
+
+.select-btn.disabled {
+    background-color: #dc3545; /* Red color for conflict */
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
+}
+
+.course-header {
+    flex-direction: column; /* Stack items vertically on mobile */
+}
+
+.selected-section-info {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* Toggle icon styles */
+.toggle {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.toggle.rotated {
+    transform: rotate(180deg); /* Rotate for upward arrow */
+}
+
+
+/* Styles for selected section info */
+.selected-details {
+    font-size: 17px;
+    color: #666;
+}
+
+.selected-details p {
+    margin: 5px ;
+}
+

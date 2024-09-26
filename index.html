@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Student Information Section -->
+    <div class="student-info">
+      <h2>Student Information</h2>
+      <div class="info">
+        <p><span>Student Id:</span> 0111111111</p>
+        <p><span>Name:</span> Demo Name</p>
+        <p><span>Program:</span> Demo Program</p>
+        <p><span>Batch:</span> Demo Batch</p>
+        <p><span>CGPA:</span> 5.00</p>
+        <p><span>Major:</span></p>
+      </div>
+    </div>
+
+    <!-- Courses Taken Section -->
+    <div class="courses-taken">
+      <h2>Courses Taken</h2>
+      <div class="course">
+        <div class="course-header">
+          <h3>PHY 2106 - Physics Laboratory</h3>
+          <p class="selected-section-info">No Section Selected</p>
+          <span class="toggle">▼</span>
+        </div>
+        <div class="course-body">
+          <table>
+            <thead>
+              <tr>
+                <th class="select-column">Take/Change</th>
+                <th>Section</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Faculty</th>
+                <th>Remaining</th>
+                <th>Room</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-conflict="true">
+                <td data-label="Select" class="select-column"><button class="select-btn">Conflicted with MATH 4436
+                    Calculas</button></td>
+                <td data-label="Sec">A</td>
+                <td data-label="Date">Sat & Tue</td>
+                <td data-label="Time">08:30 AM - 11:00 AM</td>
+                <td data-label="Faculty">Prof. Smith</td>
+                <td data-label="Room">910</td>
+                <td data-label="Remaining">42/45</td>
+              </tr>
+              <tr data-conflict="false">
+                <td data-label="Select" class="select-column"><button class="select-btn">Take/Change</button></td>
+                <td data-label="Sec">B</td>
+                <td data-label="Date">Sat & Tue</td>
+                <td data-label="Time">08:30 AM - 11:00 AM</td>
+                <td data-label="Faculty">Prof. Smith</td>
+                <td data-label="Room">503</td>
+                <td data-label="Remaining">37/45</td>
+              </tr>
+              <tr data-conflict="false">
+                <td data-label="Select" class="select-column"><button class="select-btn">Take/Change</button></td>
+                <td data-label="Sec">C</td>
+                <td data-label="Date">Sat & Tue</td>
+                <td data-label="Time">18:30 AM - 11:00 AM</td>
+                <td data-label="Faculty">Prof. Smith</td>
+                <td data-label="Room">5003</td>
+                <td data-label="Remaining">37/45</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>
